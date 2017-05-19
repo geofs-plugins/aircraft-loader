@@ -142,3 +142,19 @@ multiplayer.loadModels = function(p) {
     }
     return b
 };
+
+(function() {
+	var featured = "<li class='geofs-list-collapsible-item'>Aircraft Warehouse<ul>";
+	$.ajax({
+	   url: "http://aircraft-loader.appspot.com/featured.php",
+		type: "GET",
+		success: function(e) {
+			var j = JSON.parse(e);
+			for (var i = 0; i < j.length; i++) {
+				featured += "<li data-aircraft='AC:" + btoa(j[i].url) + "'>" + j[i].name + "</li>";
+			}
+			featured += "</ul></li>";
+			$(".geofs-aircraft-list").prepend(featured);
+		}
+	});
+})();
