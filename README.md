@@ -2,9 +2,10 @@
 An extension for GeoFS that will be able to load aircraft from a remote URL
 
 # Formata for external aircraft serving (See the LWASP implementation on our GitHub.)
-Given is an identifier for the plane, starting with "AC:" followed by the url of the plane encoded in Base64.
-	For example: the url is http://presentit.co.il/yotamsalmon/cesium/load.php?id=319
-	The identifier will be AC:aHR0cDovL3ByZXNlbnRpdC5jby5pbC95b3RhbXNhbG1vbi9jZXNpdW0vbG9hZC5waHA/aWQ9MzE5
+
+Given is an identifier for the plane, starting with "AC:" followed by the url of the plane encoded in Base64.<br/>
+* For example: the url is http://presentit.co.il/yotamsalmon/cesium/load.php?id=319
+* The identifier will be AC:aHR0cDovL3ByZXNlbnRpdC5jby5pbC95b3RhbXNhbG1vbi9jZXNpdW0vbG9hZC5waHA/aWQ9MzE5
 
 ```
 The server serves the aircraft descriptor in JSON format like that:
