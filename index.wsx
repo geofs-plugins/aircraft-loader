@@ -1,0 +1,23 @@
+<%include string_helper%>
+<@
+_CONNECTION.responseHeaders["Access-Control-Allow-Origin"] = "*";
+string id = _GET["id"];
+string[] details = File.ReadAllLines("web_docs/aircraft_files/" + id + "/descriptor.txt");
+string altId = details[1];
+string name = details[0].ToLiteral();
+string path = details[2].ToLiteral();
+bool isPremium = false;
+bool isCommunity = false;
+string definition = File.ReadAllText("web_docs/aircraft_files/" + id + "/aircraft.json").ToB64();
+LWASP.Write("{\"id\": ");
+LWASP.Write(id);
+LWASP.Write(", \"altId\": ");
+LWASP.Write(altId);
+LWASP.Write(", \"name\": ");
+LWASP.Write(name);
+LWASP.Write(", \"fullPath\": ");
+LWASP.Write(path);
+LWASP.Write(", \"isPremium\": 0, \"isCommunity\": 0, \"definition\": \"");
+LWASP.Write(definition);
+LWASP.Write("\"}");
+@>

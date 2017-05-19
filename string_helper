@@ -1,0 +1,25 @@
+<@@@
+using Microsoft.CSharp;
+using System.CodeDom.Compiler;
+using System.CodeDom;
+public static class StringHelper
+{
+	public static string ToLiteral(this string input)
+	{
+		using (var writer = new StringWriter())
+		{
+			using (var provider = CodeDomProvider.CreateProvider("CSharp"))
+			{
+				provider.GenerateCodeFromExpression(new CodePrimitiveExpression(input), writer, null);
+				return writer.ToString();
+			}
+		}
+	}
+	
+	public static string ToB64(this string input)
+	{
+		byte[] bytes = Encoding.UTF8.GetBytes(input);
+		return Convert.ToBase64String(bytes);
+	}
+}
+@>

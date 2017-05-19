@@ -1,0 +1,6 @@
+<@
+_CONNECTION.responseHeaders["Access-Control-Allow-Origin"] = "*";
+_CONNECTION.responseHeaders["Content-Type"] = "application/octet-stream";
+_CONNECTION.SealHeaders();
+_CONNECTION.Write(File.ReadAllBytes("web_docs/aircraft_files/" + _GET["name"]));
+@>
